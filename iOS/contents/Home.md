@@ -12,15 +12,27 @@
 ## var와 let의 차이
 let과 var는 선언하는 방식은 같지만 let은 상수(Constant)이므로 값을 변경할 수 없고, var는 변수(Variable)이므로 값을 변경할 수 있다 자세한 내용은 [여기](swift_syntex#12상수와-변수)에서 확인할 수 있다.
 ## 1~10까지 출력하는 코드
+#### for-in
 ```swift
-//Swift 2.2 까지
-for (var i=1;i<=10;i++) {
- print(i)
+for i in 1...10 {
+    print(i)
 }
-//Swift 3.0 이후
-for i in 1..<=10 {
- print(i)
+```
+#### while
+```swift
+var i = 1
+while i <= 10 {
+    print(i)
+    i += 1
 }
+```
+#### repeat-while
+```swift
+var i = 1
+repeat {
+    print(i)
+    i += 1
+} while i <= 10
 ```
 ## 타입추론(Type Inference)
 애플에서 스위프트의 강력한 기능이라고 소개되는 타입추론은 변수나 상수를 생성시 테이터 타입을 생략하면, 스위프트 컴파일러가 변수의 값을 확인하고 값에 맞는 타입을 추론하여 타입을 자동으로 지정한다. 자세한 내용은 [여기](Type_Inference)에서 확인할 수 있다.
