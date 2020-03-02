@@ -148,10 +148,10 @@ someAnyObject = 123.12    // 🙅‍♂️
 var someAny: Any = 100
 var someAnyObject: AnyObject = SomeClass()
 
-// nil을 다루는 방법은 옵셔널 파트에서..
 someAny = nil         // 🙅‍♂️
 someAnyObject = nil   // 🙅‍♂️
 ```
+#### nil을 다루는 방법은 [옵셔널](#19옵셔널optional) 파트에서 진행
 ## 1.5.컬렉션 타입(Collection Types)
 여러 값들을 묶어서 표현할 수 있는 타입으로 `Array, Dictionary, Set`이 있다.
 ### 1.5.1.Array
@@ -524,4 +524,151 @@ while 조건 {
 repeat {
     /* 실행 구문 */
 } while 조건
+```
+## 1.9.옵셔널(Optional)
+* 값이 있을 수도, 없을 수도 있음을 표현
+* nil이 할당 될 수 있는지 없는지 표현
+```swift
+// someOptionalParm에 nil이 할당 될 수 있다.
+func someFunction(someOptionalParam: Int?) {
+       // ....
+}
+
+/// someOptionalParm에 nil이 할당 될 수 없다.
+func someFunction(someOptionalParam: Int) {
+       // ....
+}
+
+someFunction(someOptionalParam: nil)
+// someFunction(someParam: nil) 
+```
+### 1.9.1.옵셔널 사용 이유
+* 명시적 표현
+    * nil의 가능성을 코드만으로 표현가능
+    * 문서/주석 작성 시간 절약
+* 안전한 사용
+    * 전달받은 값이 옵셔널이 아니라면 nil 체크를 하지 않고 사용가능
+    * 예외 상황을 최소화 하는 안전한 코딩
+    * 효율적 코딩
+### 1.9.2.옵셔널 문법
+* 옵셔널 문법 = enum + general
+#### 옵셔널 선언
+```swift
+enum Optional<Wrapped>: ExpressibleByNiliteral {
+         case none
+         case some(Wrapped)
+}
+
+let optionalValue: Optional<Int> = nil
+let optionalValue: Int? =nil
+```
+### 1.9.3.암시적 추출 옵셔널(Implicitly Unwrapped Optional)
+* 느낌표(!)를 이용한 암시적 추출 옵셔널
+* 기존 변수처럼 사용 가능 `optionalValue = optionalValue + 1`
+* nil 할당 가능 `optionalValue = nil`
+* 잘못된 접근으로 인한 런타임 오류 발생 `optionalValue = optionalValue + 1`
+```swift
+// Implicitly Unwrapped Optional
+var implicitlyUnwrappedOptionalValue: Int! = 100
+
+switch implicitlyUnwrappedOptionalValue {
+case .none:
+    print("This Optional variable is nil")
+case .some(let value):
+    print("Value is \(value)")
+}
+
+// 기존 변수처럼 사용 가능
+implicitlyUnwrappedOptionalValue = implicitlyUnwrappedOptionalValue + 1
+
+// nil 할당 가능
+implicitlyUnwrappedOptionalValue = nil
+
+// 잘못된 접근으로 인한 런타임 오류 발생
+//implicitlyUnwrappedOptionalValue = implicitlyUnwrappedOptionalValue + 1
+```
+### 1.9.4.옵셔널(Optional)
+* 물음표(?)를 이용한 옵셔널
+* nil 할당 가능 `optionalValue = nil`
+* 기존 변수처럼 사용 불가(옵셔널과 일반 값은 다른 타입이므로 연산 불가) `optionalValue = optionalValue + 1`
+```swift
+// Optional
+var optionalValue: Int? = 100
+
+switch optionalValue {
+case .none:
+    print("This Optional variable is nil")
+case .some(let value):
+    print("Value is \(value)")
+}
+```
+### 1.9.5.옵셔널 추출(Optional Unwrapping)
+* 옵셔널에 들어있는 값을 사용하기 위해 꺼내오는 것
+#### 옵셔널 바인딩(Optional Binding)
+* nil 체크 + 안전한 추출
+* 옵셔널 안에 값이 들어있는지 확인하고 값이 있으면 값을 꺼내온다.
+* if-let 방식 사용
+```swift
+func printName(_ name: String) {
+    print(name)
+}
+
+var myName: String? = nil
+
+//printName(myName)
+// 전달되는 값의 타입이 다르기 때문에 컴파일 오류발생
+
+if let name: String = myName {
+    printName(name)
+} else {
+    print("myName == nil")
+}
+
+
+var yourName: String! = nil
+
+if let name: String = yourName {
+    printName(name)
+} else {
+    print("yourName == nil")
+}
+
+// name 상수는 if-let 구문 내에서만 사용가능합니다
+// 상수 사용범위를 벗어났기 때문에 컴파일 오류 발생
+// printName(name)
+
+
+// ,를 사용해 한 번에 여러 옵셔널을 바인딩 할 수 있습니다
+// 모든 옵셔널에 값이 있을 때만 동작합니다
+myName = "yhan"
+yourName = nil
+
+if let name = myName, let friend = yourName {
+    print("\(name) and \(friend)")
+}
+// yourName이 nil이기 때문에 실행되지 않습니다
+yourName = "hana"
+
+if let name = myName, let friend = yourName {
+    print("\(name) and \(friend)")
+}
+// yhan and hana
+```
+#### 강제 추출(Force Unwrapping)
+* 옵셔널에 값이 들어있는지 아닌지 확인하지 않고 강제로 값을 꺼내는 방식
+`만약 값이 없을경우(nil) 런타임 오류가 발생하기 때문에 추천되지 않습니다.` 
+```swift
+var myName: String? = yhan
+var youName: String! = nil
+
+
+printName(myName!) // yhan
+myName = nil
+
+//print(myName!)
+// 강제추출시 값이 없으므로 런타임 오류 발생
+yourName = nil
+
+//printName(yourName)
+// nil 값이 전달되기 때문에 런타임 오류발생
 ```
