@@ -737,7 +737,7 @@ Sample.typeMethod() // type method
 //mutable.typeMethod()
 ```
 ## 1.11.클래스(Class)
-* 클래는 참조(reference) 타입 이다.
+* 클래는 참조(reference) 타입 이다.
 * 타입 이름은 대문자 카멜케이스를 사용하여 정의한다.
 * Swift의 클래스는 다중상속이 되지 않는다.
 ### 1.11.1.클래스 문법
@@ -783,7 +783,7 @@ mutableReference.mutableProperty = 200
 
 // 불변 프로퍼티는 인스턴스 생성 후 수정할 수 없다
 // 컴파일 오류 발생
-//mutableReference.immutableProperty = 200
+// mutableReference.immutableProperty = 200
 
 
 // 인스턴스 생성 - 참조정보 수정 불가
@@ -794,12 +794,12 @@ immutableReference.mutableProperty = 200
 
 // 다만 참조정보를 변경할 수는 없다
 // 컴파일 오류 발생
-//immutableReference = mutableReference
+// immutableReference = mutableReference
 
 // 참조 타입이라도 불변 인스턴스는 
 // 인스턴스 생성 후에 수정할 수 없다
 // 컴파일 오류 발생
-//immutableReference.immutableProperty = 200
+// immutableReference.immutableProperty = 200
 
 
 // 타입 프로퍼티 및 메서드
@@ -809,6 +809,6 @@ Sample.typeMethod() // type method
 // 인스턴스에서는 타입 프로퍼티나 타입 메서드를
 // 사용할 수 없다
 // 컴파일 오류 발생
-//mutableReference.typeProperty = 400
-//mutableReference.typeMethod()
+// mutableReference.typeProperty = 400
+// mutableReference.typeMethod()
 ```
