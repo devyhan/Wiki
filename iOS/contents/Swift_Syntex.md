@@ -58,12 +58,10 @@ nickName = "윤효정" // 🙆‍♂️
 ```
 ## 1.3.데이터 타입(Data Type)
 Swift의 기본 데이터 타입
-```
 * Boolean
 * Int, Unit
 * Float, Double
 * Character, String
-```
 ### 1.3.1.불리언(Boolean)
 * true와 false만 가지는 타입
 * Bool 변수에 true나 false값이 아닌 0과 1도 Int형으로 구분
@@ -241,7 +239,7 @@ print(anyDictionary)
 
 // 3. 불변 Dictionary: let을 사용하여 Dictionary 선언
 let emptyDictionary: [String: String] = [:]
-let initalizedDictionary: [String: String] = ["name": "yagom", "gender": "male"]
+let initalizedDictionary: [String: String] = ["name": "yhan", "gender": "male"]
 
 // 불변 Dictionary이므로 값 변경 불가
 //emptyDictionary["key"] = "value"
@@ -372,7 +370,7 @@ func bye() { print("bye") }
 ```swift
 sum(a: 3, b: 5) // 8
 
-printMyName(name: "yagom") // yagom
+printMyName(name: "yhan") // yhan
 
 printYourName(name: "hana") // hana
 
@@ -391,12 +389,12 @@ func 함수이름(매개변수1이름: 매개변수1타입, 매개변수2이름:
     return 반환값
 }
 
-func greeting(friend: String, me: String = "yagom") {
+func greeting(friend: String, me: String = "yhan") {
     print("Hello \(friend)! I'm \(me)")
 }
 
 // 매개변수 기본값을 가지는 매개변수는 호출시 생략할 수 있다
-greeting(friend: "hana") // Hello hana! I'm yagom
+greeting(friend: "hana") // Hello hana! I'm yhan
 greeting(friend: "john", me: "eric") // Hello john! I'm Eric
 ```
 ### 1.6.7.전달인자 레이블(Argument Label)
@@ -414,7 +412,7 @@ func greeting(to friend: String, from me: String) {
 }
 
 // 함수를 호출할 때에는 전달인자 레이블을 사용해야 한다
-greeting(to: "hana", from: "yagom") // Hello hana! I'm yagom
+greeting(to: "hana", from: "yhan") // Hello hana! I'm yhan
 ```
 ### 1.6.8.가변 매개변수
 * 전달 받을 값의 개수를 알기 어려울 때 사용한다.
@@ -429,11 +427,11 @@ greeting(to: "hana", from: "yagom") // Hello hana! I'm yagom
 func sayHelloToFriends(me: String, friends: String...) -> String {
     return "Hello \(friends)! I'm \(me)!"
 }
-print(sayHelloToFriends(me: "yagom", friends: "hana", "eric", "wing"))
-// Hello ["hana", "eric", "wing"]! I'm yagom!
+print(sayHelloToFriends(me: "Chan", friends: "hana", "eric", "wing"))
+// Hello ["hana", "eric", "wing"]! I'm yhan!
 
-print(sayHelloToFriends(me: "yagom"))
-// Hello []! I'm yagom!
+print(sayHelloToFriends(me: "Chan"))
+// Hello []! I'm yhan!
 ```
 **반환값이 없는 함수, 매개변수 기본 값, 전달인자 레이블, 가변 매개변수 등 모두 섞어서 사용 가능하다.**
 ### 1.6.9.데이터 타입으로서의 함수
@@ -445,10 +443,10 @@ print(sayHelloToFriends(me: "yagom"))
 * 함수타입 사용
 ```swift
 var someFunction: (String, String) -> Void = greeting(to:from:)
-someFunction("eric", "yagom") // Hello eric! I'm yagom
+someFunction("eric", "yhan") // Hello eric! I'm yhan
 
 someFunction = greeting(friend:me:)
-someFunction("eric", "yagom") // Hello eric! I'm yagom
+someFunction("eric", "yhan") // Hello eric! I'm yhan
 
 
 // 타입이 다른 함수는 할당할 수 없습니다 - 컴파일 오류 발생
@@ -683,7 +681,7 @@ struct 이름 {
 	/* 구현부 */
 }
 ```
-#### 구조체 프로퍼티 및 메서드 구현
+### 1.10.2.구조체 프로퍼티 및 메서드 구현
 ```swift
 struct Sample {
     // 가변 프로퍼티(값 변경 가능)
@@ -707,14 +705,14 @@ struct Sample {
 }
 
 ```
-#### 구조체 사용
+### 1.10.3.구조체 사용
 ```swift
 // 가변 인스턴스 생성
 var mutable: Sample = Sample()
 
 mutable.mutableProperty = 200
 
-// 불변 프로퍼티는 인스턴스 생성 후 수정할 수 없습니다
+// 불변 프로퍼티는 인스턴스 생성 후 수정할 수 없다
 // 컴파일 오류 발생
 //mutable.immutableProperty = 200
 
@@ -722,7 +720,7 @@ mutable.mutableProperty = 200
 let immutable: Sample = Sample()
 
 // 불변 인스턴스는 아무리 가변 프로퍼티라도
-// 인스턴스 생성 후에 수정할 수 없습니다
+// 인스턴스 생성 후에 수정할 수 없다
 // 컴파일 오류 발생
 //immutable.mutableProperty = 200
 //immutable.immutableProperty = 200
@@ -733,9 +731,84 @@ Sample.typeProperty = 300
 Sample.typeMethod() // type method
 
 // 인스턴스에서는 타입 프로퍼티나 타입 메서드를
-// 사용할 수 없습니다
+// 사용할 수 없다
 // 컴파일 오류 발생
 //mutable.typeProperty = 400
 //mutable.typeMethod()
+```
+## 1.11.클래스(Class)
+* 클래는 참조(reference) 타입 이다.
+* 타입 이름은 대문자 카멜케이스를 사용하여 정의한다.
+* Swift의 클래스는 다중상속이 되지 않는다.
+### 1.11.1.클래스 문법
+* 클래스 정의 : "class" 키워드 사용
+```swift
+class 이름 {
+    /* 구현부 */
+}
+```
+### 1.11.2.프로퍼티 및 메서드 구현
+```swift
+class Sample {
+    // 가변 프로퍼티
+    var mutableProperty: Int = 100
+    // 불변 프로퍼티
+    let immutableProperty: Int = 100
+    // 타입 프로퍼티
+    static var typeProperty: Int = 100
 
+    // 인스턴스 메서드
+    func instanceMethod() {
+        print("instancemethod")
+    }
+
+    // 타입 메서드
+    // 재정의 불가 타입 메서드 - static
+    static func typeMethod() {
+        print("type method - static")
+    }
+
+    // 재정의 가능 타입 메서드 - class
+    class func classMethod() {
+        print("type method - class")
+    }
+}
+```
+### 1.11.3.클래스 사용
+```swift
+// 인스턴스 생성 - 참조정보 수정 가능
+var mutableReference: Sample = Sample()
+
+mutableReference.mutableProperty = 200
+
+// 불변 프로퍼티는 인스턴스 생성 후 수정할 수 없다
+// 컴파일 오류 발생
+//mutableReference.immutableProperty = 200
+
+
+// 인스턴스 생성 - 참조정보 수정 불가
+let immutableReference: Sample = Sample()
+
+// 클래스의 인스턴스는 참조 타입이므로 let으로 선언되었더라도 인스턴스 프로퍼티의 값 변경이 가능하다
+immutableReference.mutableProperty = 200
+
+// 다만 참조정보를 변경할 수는 없다
+// 컴파일 오류 발생
+//immutableReference = mutableReference
+
+// 참조 타입이라도 불변 인스턴스는 
+// 인스턴스 생성 후에 수정할 수 없다
+// 컴파일 오류 발생
+//immutableReference.immutableProperty = 200
+
+
+// 타입 프로퍼티 및 메서드
+Sample.typeProperty = 300
+Sample.typeMethod() // type method
+
+// 인스턴스에서는 타입 프로퍼티나 타입 메서드를
+// 사용할 수 없다
+// 컴파일 오류 발생
+//mutableReference.typeProperty = 400
+//mutableReference.typeMethod()
 ```
