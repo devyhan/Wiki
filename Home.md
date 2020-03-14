@@ -8,7 +8,7 @@ iOS|Swift를 통한 iOS 개발에 관한 지식|200314|
 Git|Git에 대한 사용 경험과 그 밖의 협업도구|200306|
 Markdown|마크다운 문법에 관한 지식|200305|
 
-* 각 메뉴의 버전전보는 업데이트 당일의 [yyMMdd](DateFormet) 로 일 1회 업데이트하여 표기한다.
+* 각 메뉴의 버전전보는 업데이트 당일의 [데이터 포맷 형식(yyMMdd)](DateFormet) 로 일 1회 업데이트하여 표기한다.
 ## Version update info
 **현재 버전 [v2.0.1](wiki#wiki-)**
 * [v1.0.0](https://github.com/devyhan93/Wiki/commit/4264375cf6e21bcf44e51cfc9692c00055f666c0) 각 저장소의 위키 프로젝트의 데이터 마크다운 파일로 백업
