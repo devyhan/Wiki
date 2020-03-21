@@ -1,5 +1,5 @@
 # Wiki 📦 
-#### v2.0.1
+#### v2.0.2
 > 위키의 버전 정보에 대한 내용은 [이곳](https://github.com/devyhan93/Wiki/wiki#version-update-info)에서 확인 할 수 있다.
 ## Document info 
 Menu|Contents|Version|
