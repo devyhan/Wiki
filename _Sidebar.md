@@ -7,5 +7,6 @@
     * [마크다운 문법](Markdown_syntex)
 * [Git](Git#깃git)
     * [Git 기본](Git_basic)
+    * [Git 응용](GitUse)
 * [Swift](Swift#스위프트swift)
     * [스위프트 문법](Swift_syntex)
