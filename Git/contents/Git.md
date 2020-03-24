@@ -11,6 +11,7 @@
 깃은 GNU 일반 공중 사용 허가서 v2 하에 배포되는 자유 소프트웨어이다.
 ## 참고문헌
 * [Git 기본](Git_basic)
+* [Git 응용](GitUse)
 * ~~[GitHub](GitHub)~~
 * ~~[GitLab](GitLab)~~
 * ~~[Yobi](Yobi)~~
