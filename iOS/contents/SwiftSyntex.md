@@ -79,7 +79,7 @@ someVariableName
 ```
 클래스(class), 구조체(struct), 열거형(enum), 익스텐션과(extension) 같은 타입(type)은 대문자로 시작하는 🐫표기법(Camel case)인 Upper Camel Case를 사용한다
 ```
-erson, Point, Week
+Person, Point, Week
 ```
 Swift는 대소문자를 구분하며, 띄어쓰기를 다 구분한다
 
