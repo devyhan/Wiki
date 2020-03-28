@@ -75,3 +75,18 @@ let a = Double(lineArr[0])!
 let b = Double(lineArr[1])!
 print(a/b)
 */
+/*=======================================
+                Q_10869
+=======================================*/
+/*
+import Foundation
+let line = readLine()!
+let lineArr = line.components(separatedBy: " ")
+let a = Int(lineArr[0])!
+let b = Int(lineArr[1])!
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+print(a%b)
+*/
