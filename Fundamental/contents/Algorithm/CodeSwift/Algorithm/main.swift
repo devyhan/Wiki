@@ -90,3 +90,22 @@ print(a*b)
 print(a/b)
 print(a%b)
 */
+/*=======================================
+                Q_10430
+=======================================*/
+/*
+import Foundation
+let line = readLine()!
+let lineArr = line.components(separatedBy: " ")
+let a = Int(lineArr[0])!
+let b = Int(lineArr[1])!
+let c = Int(lineArr[2])!
+var A:Int = (a+b)%c
+var B:Int = (a%c+b%c)%c
+var C:Int = (a*b)%c
+var D:Int = (a%c*b%c)%c
+print(A)
+print(B)
+print(C)
+print(D)
+*/
