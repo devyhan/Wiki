@@ -123,3 +123,25 @@ print(B)
 print(C)
 print(D)
 */
+/*=======================================
+                Q_1330
+=======================================*/
+/*
+import Foundation
+
+var num = readLine() // "1 2"
+if let number = num {
+    let array = number.components(separatedBy: " ")
+ 
+    let A = Int(array[0])!
+    let B = Int(array[1])!
+    
+    if A>B {
+        print(">")
+    } else if A<B {
+        print("<")
+    } else {
+        print("==")
+    }
+}
+*/
