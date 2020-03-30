@@ -187,6 +187,7 @@ if(num % 4 == 0) {
 /*=======================================
                 Q_14681
 =======================================*/
+/*
 import Foundation
 
 var firstNum = Int(readLine()!)!
@@ -203,3 +204,25 @@ if(firstNum > 0 && secondNum > 0) {
 } else {
     print("값에 0이 올 수 없습니다.")
 }
+*/
+/*=======================================
+                Q_2884
+=======================================*/
+import Foundation
+
+var line = readLine()!
+var lineArr = line.components(separatedBy: " ")
+var hourNum = Int(lineArr[0])!
+var minuteNum = Int(lineArr[1])!
+
+minuteNum -= 45
+
+if minuteNum < 0 {
+    minuteNum += 60
+    hourNum -= 1
+    if hourNum < 0 {
+        hourNum += 24
+    }
+}
+
+print(hourNum, minuteNum)
