@@ -169,6 +169,7 @@ if(num>100) {
 /*=======================================
                 Q_2753
 =======================================*/
+/*
 import Foundation
 
 var num = Int(readLine()!)! // "2000"
@@ -182,4 +183,23 @@ if(num % 4 == 0) {
 } else {
     print(0)
 }
+*/
+/*=======================================
+                Q_14681
+=======================================*/
+import Foundation
 
+var firstNum = Int(readLine()!)!
+var secondNum = Int(readLine()!)!
+
+if(firstNum > 0 && secondNum > 0) {
+    print(1)
+} else if(firstNum < 0 && secondNum > 0) {
+    print(2)
+} else if(firstNum < 0 && secondNum < 0) {
+    print(3)
+} else if(firstNum > 0 && secondNum < 0) {
+    print(4)
+} else {
+    print("값에 0이 올 수 없습니다.")
+}
