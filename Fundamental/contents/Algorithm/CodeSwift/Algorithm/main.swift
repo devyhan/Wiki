@@ -145,3 +145,22 @@ if let number = num {
     }
 }
 */
+/*=======================================
+                Q_9498
+=======================================*/
+import Foundation
+
+var num = Int(readLine()!)!// "100"
+if(num>100) {
+    print("점수가 100점 이상입니다 점수를 다시 확인해 주세요.")
+} else if(num>=90) {
+    print("A")
+} else if(num>=80) {
+    print("B")
+} else if(num>=70) {
+    print("C")
+} else if(num>=60) {
+    print("D")
+} else {
+    print("F")
+}
