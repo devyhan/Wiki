@@ -208,6 +208,7 @@ if(firstNum > 0 && secondNum > 0) {
 /*=======================================
                 Q_2884
 =======================================*/
+/*
 import Foundation
 
 var line = readLine()!
@@ -226,3 +227,14 @@ if minuteNum < 0 {
 }
 
 print(hourNum, minuteNum)
+*/
+/*=======================================
+                Q_2739
+=======================================*/
+import Foundation
+
+var num = Int(readLine()!)!
+
+for i in 1...9 {
+    print("\(num) * \(i) = \(num*i)")
+}
