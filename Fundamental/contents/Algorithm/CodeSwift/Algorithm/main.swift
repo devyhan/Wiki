@@ -231,10 +231,32 @@ print(hourNum, minuteNum)
 /*=======================================
                 Q_2739
 =======================================*/
+/*
 import Foundation
 
 var num = Int(readLine()!)!
 
 for i in 1...9 {
     print("\(num) * \(i) = \(num*i)")
+}
+*/
+/*=======================================
+                Q_10950
+=======================================*/
+import Foundation
+
+var num = Int(readLine()!)!
+var anyDictionary: Dictionary<Int, Any> = [Int: Any]()
+
+for num in 1...num {
+    let line = readLine()!
+    let lineArr = line.components(separatedBy: " ")
+    let firstNum = Int(lineArr[0])!
+    let secondNum = Int(lineArr[1])!
+    
+    anyDictionary[num] = firstNum + secondNum
+}
+
+for num in 1...num {
+    print(anyDictionary[num]!)
 }
