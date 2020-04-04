@@ -243,6 +243,7 @@ for i in 1...9 {
 /*=======================================
                 Q_10950
 =======================================*/
+/*
 import Foundation
 
 var num = Int(readLine()!)!
@@ -260,3 +261,17 @@ for num in 1...num {
 for num in 1...num {
     print(anyDictionary[num]!)
 }
+*/
+/*=======================================
+                Q_8393
+=======================================*/
+import Foundation
+
+var n = Int(readLine()!)!
+var sum:Int = 0
+
+for n in 1...n {
+    sum = sum + n
+}
+
+print(sum)
