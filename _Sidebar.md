@@ -4,6 +4,7 @@
     * [소프트웨어 버전](Version)
     * [알고리즘 문제](Algorithm)
     * [데이터 포맷](DateFormet)
+    * [자료구조](DataStructure)
 * [MarkDown](MarkDown#마크다운markdown)
     * [마크다운 문법](Markdown_syntex)
 * [Git](Git#깃git)
