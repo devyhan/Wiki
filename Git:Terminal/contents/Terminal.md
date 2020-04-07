@@ -1,1 +1,1 @@
-# 1.Terminal
+# 1.터미널(Terminal)
